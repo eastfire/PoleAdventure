@@ -25,19 +25,19 @@ Crafty.scene("game-over", function() {
 					.textFont({'size' : "38px", 'family': 'Arial'})
 
 				Crafty.e("2D, Canvas, Text")
-					.attr({w: 200, h: 40, x: 540, y: 80, z: 10})
+					.attr({w: 200, h: 40, x: 640, y: 80, z: 10})
 					.text("第1名")
 					.textColor('#000000')
 					.textFont({'size' : "28px", 'family': 'Arial'})
 					
 				Crafty.e("2D, Canvas, Text")
-					.attr({w: 200, h: 40, x: 320, y: 140, z: 10})
+					.attr({w: 200, h: 40, x: 420, y: 140, z: 10})
 					.text("第2名")
 					.textColor('#000000')
 					.textFont({'size' : "28px", 'family': 'Arial'})
 					
 				Crafty.e("2D, Canvas, Text")
-					.attr({w: 200, h: 40, x: 760, y: 200, z: 10})
+					.attr({w: 200, h: 40, x: 860, y: 200, z: 10})
 					.text("第3名")
 					.textColor('#000000')
 					.textFont({'size' : "28px", 'family': 'Arial'})
