@@ -1,7 +1,7 @@
 Crafty.scene("game-over", function() {
 	var elements = [
 	];	
-	Crafty.load(["web/images/game-over.jpg"],
+	Crafty.load([],
 		function() {
 			//when everything is loaded, run the main scene
 			require(elements, function() {

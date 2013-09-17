@@ -46,7 +46,7 @@ Sprites = Backbone.Model.extend({
 				}
 			},
 			'maps' : {
-				'file' : 'web/images/map.png',
+				'file' : 'web/images/map.jpg',
 				'tile' : 132,
 				'tileh' : 131,
 				'elements': {
@@ -66,7 +66,7 @@ Sprites = Backbone.Model.extend({
 				}
 			},
 			"players" : {
-				'file' : 'web/images/players.png',
+				'file' : 'web/images/players.jpg',
 				'tile' : 200,
 				'tileh' : 120,
 				'elements': {
@@ -79,7 +79,7 @@ Sprites = Backbone.Model.extend({
 				}
 			},
 			"waiting-players" : {
-				'file' : 'web/images/waiting-players.png',
+				'file' : 'web/images/waiting-players.jpg',
 				'tile' : 109,
 				'tileh' : 120,
 				'elements': {
@@ -111,7 +111,7 @@ Sprites = Backbone.Model.extend({
 				}
 			},
 			"round-track":{
-				'file' : 'web/images/round-track.png',
+				'file' : 'web/images/round-track.jpg',
 				'tile' : 220,
 				'tileh' : 540,
 				'elements': {
@@ -180,7 +180,7 @@ Sprites = Backbone.Model.extend({
 				}
 			},
 			"portraits":{
-				'file' : 'web/images/portraits.png',
+				'file' : 'web/images/portraits.jpg',
 				'tile' : 100,
 				'tileh' : 100,
 				'elements': {
