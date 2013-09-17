@@ -17,7 +17,7 @@ window.onload = function() {
 	
 	require([
 	         "src/sprites.js?v="+version+"",
-	         "src/config.js?v="+version+"",
+	         "src/config.js?v="+version+""
 	], function() {
 		// Create Sprites
 		var sprites = new Sprites();
@@ -41,6 +41,7 @@ window.onload = function() {
 			// load takes an array of assets and a callback when complete
 			var paths = sprites.getPaths();
 			paths.push("web/images/cover.jpg");
+			paths.push("web/images/game-over.jpg");			
 			Crafty.load(paths, function() {
 				// array with local components
                 var elements = [
