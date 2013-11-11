@@ -4,11 +4,19 @@ UIStrategy = Strategy.extend({
 		var options = this.options;
 		var disasters = gameStatus.get("disasterCardViews");
 		var _selectDisaster = function(){
+			if ( tips.tipsChainBlockInteract )	{
+				return;
+			}
 			//user ready			
 			for ( var key in disasters ){
 				var disasterCard = disasters[key];
 				disasterCard.selectable(false);
 				disasterCard.unbind("MouseDown",_selectDisaster);
+			}
+
+			if ( tips.step === 0 ){
+				tips.step++;
+				tips.next();
 			}
 			options.callbacks.putInstinct(this);
 		}
@@ -23,17 +31,28 @@ UIStrategy = Strategy.extend({
 		}
 	},
 	ondeploy:function(){
+		if ( tips.step === 1 ){
+			tips.step++;
+			tips.next();
+		}
 		var options = this.options;
 		if ( playingPlayers.at(this.playerId).get("unitLeft") <= 0 ){
 			gameStatus.set("playerReady",true);
 			return;
 		}
 		var _depolyUnit = function(){
+			if ( tips.tipsChainBlockInteract )	{
+				return;
+			}
 			//user ready
 			for ( var key in map ){
 				var block = map[key];
 				block.selectable(false);
 				block.unbind("MouseDown",_depolyUnit);
+			}
+			if ( tips.step === 2 ){
+				tips.step++;
+				tips.next();
 			}
 			options.callbacks.putUnit(this);
 		}
@@ -48,10 +67,17 @@ UIStrategy = Strategy.extend({
 		}
 	},
 	onmove:function(){
+		if ( tips.step === 3 ){
+			tips.step++;
+			tips.next();
+		}
 		var options = this.options;
 		var unitAlive = false;
 		var self = this;
 		var _selectUnit = function(){
+			if ( tips.tipsChainBlockInteract )	{
+				return;
+			}
 			self.originUnitPosition = this.model.get("position");
 			self.prevUnitPosition = this.model.get("position");
 
@@ -66,13 +92,25 @@ UIStrategy = Strategy.extend({
 				block.selectable(true);
 				block.bind('MouseDown', _moveUnit);
 			}
+			if ( tips.step === 4 ){
+				tips.step++;
+				tips.next();
+			}
 		}
 		var _moveUnit = function(){
+			if ( tips.tipsChainBlockInteract )	{
+				return;
+			}
 			for ( var key in map ){
 				var block = map[key];
 				block.selectable(false);
 				block.unbind("MouseDown",_selectUnit);
 				block.unbind('MouseDown', _moveUnit);
+			}
+
+			if ( tips.step === 5 ){
+				tips.step++;
+				tips.next();
 			}
 
 			if ( this.model.get("units").length < gameStatus.getCurrentRound().limit ){

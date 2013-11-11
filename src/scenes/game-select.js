@@ -15,9 +15,19 @@ Crafty.scene("game-select", function() {
 					.textColor('#000000')
 					.textFont({'size' : "38px", 'family': 'Arial'})
 
-				var extra = Crafty.e("2D ,Canvas, Mouse, game-mode-extra-n").attr({x: 576, y: 520,z:1});
+				var extra = Crafty.e("2D ,Canvas, Mouse, game-mode-extra-n").attr({x: 376, y: 520,z:1});
 				extra.bind("Click",function(){
 					extra.toggleComponent("game-mode-extra-n","game-mode-extra-y");
+				});
+				
+				var settingStore = localStorage.getItem("settings");
+				if ( !settingStore ){
+					settings = { tutorial:true };
+				} else settings = JSON.parse(settingStore);
+				var tutorialSwitch = settings.tutorial ? "y":"n";
+				var tutorial = Crafty.e("2D ,Canvas, Mouse, game-tutorial-"+tutorialSwitch).attr({x: 576, y: 520,z:1});
+				tutorial.bind("Click",function(){
+					tutorial.toggleComponent("game-tutorial-n","game-tutorial-y");
 				});
 
 				var playerViews = [];
@@ -55,7 +65,9 @@ Crafty.scene("game-select", function() {
 								});
 							}
 						}
-						window.gameStatus = new GameStatus({ playerNumber:playerNumber , playerOrder:[],extra:extra.has("game-mode-extra-y")});
+						settings.tutorial = tutorial.has("game-tutorial-y");
+						localStorage.setItem("settings",JSON.stringify(settings));
+						window.gameStatus = new GameStatus({ playerNumber:playerNumber , playerOrder:[], tutorial: settings.tutorial,extra:extra.has("game-mode-extra-y")});
 						Crafty.scene("game");
 					});
 			});

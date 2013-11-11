@@ -128,6 +128,9 @@ Crafty.c("DisasterCard", {
 		this.requires("Mouse,Tween")
 	},
 	_onPressed:function(){
+		if ( tips.tipsChainBlockInteract )	{
+			return;
+		}
 		if ( gameStatus.get("phase") >= 3 ){
 			return;
 		}
@@ -145,6 +148,9 @@ Crafty.c("DisasterCard", {
 		}
 	},
 	_onUnpressed:function(){
+		if ( tips.tipsChainBlockInteract )	{
+			return;
+		}
 		if ( gameStatus.get("phase") >= 3 ){
 			return;
 		}

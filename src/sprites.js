@@ -168,7 +168,9 @@ Sprites = Backbone.Model.extend({
 					'start-game' : [0, 2],
 					'restart-game' : [0, 3],
 					'game-mode-extra-n' : [0, 4],
-					'game-mode-extra-y' : [0, 5]
+					'game-mode-extra-y' : [0, 5],
+					'game-tutorial-n' : [0, 6],
+					'game-tutorial-y' : [0, 7]
 				}
 			},
 			"player-name-background":{
