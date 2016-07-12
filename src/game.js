@@ -1,7 +1,36 @@
+function doFullScreen() {
+
+    var isInFullScreen = (document.fullScreenElement && document.fullScreenElement !==     null) ||    // alternative standard method
+        (document.mozFullScreen || document.webkitIsFullScreen);
+    var docElm = document.getElementById("cr-stage");
+    if (!isInFullScreen) {
+        if (docElm.requestFullscreen) {
+            docElm.requestFullscreen();
+        }
+        else if (docElm.mozRequestFullScreen) {
+            docElm.mozRequestFullScreen();
+//            alert("Mozilla entering fullscreen!");
+        }
+        else if (docElm.webkitRequestFullScreen) {
+            docElm.webkitRequestFullScreen();
+//            alert("Webkit entering fullscreen!");
+        }
+    }
+}
+
+$(function(){
+    $("body").on("click",function(){
+        doFullScreen();
+        $("body").off();
+    })
+})
+
 window.onload = function() {
     var version = null,
     	today = new Date();
-	
+
+
+
 	// Fix for cache
     if(gameContainer.env == 'dev') {
 		version = today.getDay()+"_"+ today.getHours() +"_"+today.getSeconds();
