@@ -21,7 +21,7 @@ function doFullScreen() {
 $(function(){
     $("body").on("click",function(){
         doFullScreen();
-        $("body").off();
+        //$("body").off();
     })
 })
 
